@@ -1,9 +1,16 @@
 let attempts;
 let userNumber;
 let winNumber;
+let gameComplete;
 
 const isNumber = function(num) {
     return !isNaN(parseFloat(num)) && isFinite(num);
+}
+
+const getGameComplete = function(gameComplete) {
+    if (gameComplete) {
+        getClouser()
+    }
 }
 
 const getClouser = function () {
@@ -32,7 +39,10 @@ const getClouser = function () {
                         alert('Загаданное число больше, осталось попыток: ' + attempts);
                         getUserNumber();
                     } else {
-                        alert('Поздравляю, Вы угадали!!!');
+                        gameComplete = confirm('Поздравляю, Вы угадали!!! Хотели бы сыграть еще?');
+                        if (gameComplete) {
+                            getClouser();
+                        }
                     }
                 }
             }
